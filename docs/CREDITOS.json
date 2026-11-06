@@ -1,0 +1,101 @@
+[
+  {
+    "title": "Crimson y componentes del mod",
+    "entries": [
+      {
+        "title": "DMC3 Crimson 0.5a",
+        "authors": "Berthrage y C-Team",
+        "detail": "Mod original. Equipo acreditado: Berthrage, Siyan, Darkness, deepdarkkapustka, Charlie, The Hitchhiker, RaccMoon, Lenam Lorbington, AirDragon, ZippoIG y Vainiuss1.",
+        "url": "https://www.nexusmods.com/devilmaycryhdcollection/mods/272?tab=description"
+      },
+      {
+        "title": "Texturas restauradas de PS2",
+        "authors": "Spritzkrieg",
+        "detail": "Restauración de texturas utilizada por Crimson, según los créditos de sus autores.",
+        "url": "https://www.nexusmods.com/devilmaycryhdcollection/mods/272?tab=description"
+      },
+      {
+        "title": "DDMK",
+        "authors": "serpentiem",
+        "detail": "Base de funciones y modificaciones incorporadas por Crimson. Licencia zlib del paquete.",
+        "url": "https://github.com/serpentiem/ddmk"
+      },
+      {
+        "title": "Compatibilidad de ejecutables",
+        "authors": "ProjectXsent / colaboradores de DDMK",
+        "detail": "Archivos de compatibilidad hdc_patches_2026. La adaptación local usa crimson_api.dll para conservar la API compartida de Steam.",
+        "url": "https://github.com/ProjectXsent/ddmk/releases/tag/patch-files"
+      },
+      {
+        "title": "DMCHDFix",
+        "authors": "Lyall",
+        "detail": "Correcciones originales de Lyall. El perfil local añade metadatos PE para cargar esta biblioteca desde el juego, conservando su código y su licencia MIT.",
+        "url": "https://github.com/Lyall/DMCHDFix"
+      },
+      {
+        "title": "Ultimate ASI Loader",
+        "authors": "ThirteenAG y colaboradores",
+        "detail": "Cargador del paquete original, de ThirteenAG y colaboradores. El perfil local actual carga DMCHDFix directamente y no utiliza este proxy.",
+        "url": "https://github.com/ThirteenAG/Ultimate-ASI-Loader"
+      },
+      {
+        "title": "Bibliotecas del paquete",
+        "authors": "Autores y colaboradores acreditados en LICENSE.txt",
+        "detail": "SDL, GLM / G-Truc Creation, Effekseer Project, Dear ImGui / Omar Cornut, libzip / Dieter Baron y Thomas Klausner, RapidJSON / Tencent y Milo Yip, stb / Sean Barrett, zlib / Jean-loup Gailly y Mark Adler; también SDL_mixer, mpg123 y Json.NET / James Newton-King. Los avisos originales del paquete se conservan completos.",
+        "url": "https://github.com/berthrage/DMC3-Crimson/tree/V0.5a"
+      }
+    ]
+  },
+  {
+    "title": "Herramientas de la app",
+    "entries": [
+      {
+        "title": "FFmpeg y FFprobe 8.0.1",
+        "authors": "Equipo y colaboradores de FFmpeg",
+        "detail": "Conversión y análisis de cinemáticas. Compilación local bajo LGPL 2.1 o posterior; fuentes y configuración conservadas en el proyecto.",
+        "url": "https://ffmpeg.org/"
+      },
+      {
+        "title": "xdelta3 3.2.2",
+        "authors": "Josh MacDonald y colaboradores",
+        "detail": "Herramienta de preparación de los archivos compatibles. Apache 2.0. Se usa al preparar el paquete; no se necesita para jugar.",
+        "url": "https://github.com/jmacd/xdelta"
+      },
+      {
+        "title": "App e integración para Mac",
+        "authors": "Desarrollo local de este proyecto",
+        "detail": "Interfaz nativa en Swift y AppKit, motor de instalación y restauración, conversión compatible y guía en español. AppKit, CryptoKit y VideoToolbox son tecnologías de Apple.",
+        "url": "https://developer.apple.com/documentation/appkit"
+      },
+      {
+        "title": "CrossOver",
+        "authors": "CodeWeavers",
+        "detail": "Plataforma para ejecutar Steam de Windows y el juego. Se instala por separado. Esta app modifica únicamente los archivos del juego y sus propios respaldos; no configura CrossOver.",
+        "url": "https://support.codeweavers.com/en_US/crossover-mac-user-guide"
+      }
+    ]
+  },
+  {
+    "title": "Referencias consultadas",
+    "entries": [
+      {
+        "title": "MacGameFix",
+        "authors": "Mathias Kowoll",
+        "detail": "Referencia para investigar los problemas WebM en CrossOver.",
+        "url": "https://github.com/MathiasKowoll/MacGameFix"
+      },
+      {
+        "title": "winevideo",
+        "authors": "Jfishin",
+        "detail": "Referencia para analizar alternativas de reproducción de video.",
+        "url": "https://github.com/Jfishin/winevideo"
+      },
+      {
+        "title": "Reportes y conversión de cinemáticas",
+        "authors": "Comunidad de Valve / Proton y Kyle P. Davis",
+        "detail": "Reporte Proton 4059 y script de recodificación de KylePDavis como referencias del diagnóstico. El motor de esta app se desarrolló localmente.",
+        "url": "https://github.com/ValveSoftware/Proton/issues/4059"
+      }
+    ]
+  }
+]

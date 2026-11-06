@@ -1,0 +1,7 @@
+.DS_Store
+.build/
+*.app/
+*.zip
+tools/src/
+mods/crimson/prepared/payload/
+/artwork/DMC3Patch.icns

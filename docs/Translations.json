@@ -1,0 +1,1046 @@
+[
+  [
+    "Tu instalación",
+    "Your installation"
+  ],
+  [
+    "Aplicá una vez. Después, jugá desde Steam.",
+    "Apply once. Then play from Steam."
+  ],
+  [
+    "Parche de video",
+    "Video patch"
+  ],
+  [
+    "Cinemáticas compatibles con respaldo y restauración.",
+    "Compatible movies with backup and restore."
+  ],
+  [
+    "El mod completo, disponible como instalación opcional.",
+    "The full mod, available as an optional installation."
+  ],
+  [
+    "Créditos y fuentes",
+    "Credits and sources"
+  ],
+  [
+    "Autores originales, herramientas y licencias del proyecto.",
+    "Original authors, tools and project licenses."
+  ],
+  [
+    "Resumen",
+    "Overview"
+  ],
+  [
+    "Videos",
+    "Videos"
+  ],
+  [
+    "Créditos",
+    "Credits"
+  ],
+  [
+    "Instalación local",
+    "Local installation"
+  ],
+  [
+    "CINEMÁTICAS",
+    "MOVIES"
+  ],
+  [
+    "Sin analizar",
+    "Not checked"
+  ],
+  [
+    "Elegí una carpeta",
+    "Choose a folder"
+  ],
+  [
+    "Sin aplicar",
+    "Not applied"
+  ],
+  [
+    "Opcional · sin instalar",
+    "Optional · not installed"
+  ],
+  [
+    "Revisar instalación",
+    "Check installation"
+  ],
+  [
+    "{0} videos instalados",
+    "{0} movies installed"
+  ],
+  [
+    "{0} instalado",
+    "{0} installed"
+  ],
+  [
+    "{0} · actualizar archivos locales",
+    "{0} · update game files"
+  ],
+  [
+    "1. Elegí la carpeta del juego",
+    "1. Choose the game folder"
+  ],
+  [
+    "Seleccioná la carpeta que contiene dmc3.exe y data. La app reconocerá los archivos del juego.",
+    "Select the folder containing dmc3.exe and data. The app will detect the game files."
+  ],
+  [
+    "Elegir carpeta del juego…",
+    "Choose game folder…"
+  ],
+  [
+    "Todavía no elegiste una carpeta.",
+    "No folder selected yet."
+  ],
+  [
+    "Carpeta del juego detectada.",
+    "Game folder detected."
+  ],
+  [
+    "Los cambios se aplican dentro de la carpeta elegida.",
+    "Changes are applied inside the selected folder."
+  ],
+  [
+    "Instalá una vez, jugá desde CrossOver",
+    "Install once, play from CrossOver"
+  ],
+  [
+    "Los videos y Crimson quedan dentro del juego. Después de aplicar, abrí Steam de Windows en CrossOver. DMC3 Patch puede permanecer cerrado.",
+    "Movies and Crimson are installed in the game folder. After applying, open Windows Steam in CrossOver. DMC3 Patch can stay closed."
+  ],
+  [
+    "Comprobar instalación",
+    "Verify installation"
+  ],
+  [
+    "Carpeta del juego",
+    "Game folder"
+  ],
+  [
+    "Comprobá los archivos instalados para verificar su integridad.",
+    "Verify the installed files to check their integrity."
+  ],
+  [
+    "Comprobá los archivos después de instalar o actualizar.",
+    "Verify the files after installing or updating."
+  ],
+  [
+    "Conservá los respaldos del proyecto para restaurar o reinstalar. Cada carpeta de juego mantiene su propio registro.",
+    "Keep the project backups to restore or reinstall. Each game folder has its own records."
+  ],
+  [
+    "Cinemáticas compatibles",
+    "Compatible movies"
+  ],
+  [
+    "Convertí las cinemáticas a H.264/AAC. Preparar genera y verifica los archivos. Aplicar los instala con respaldo.",
+    "Convert movies to H.264/AAC. Prepare creates and verifies the files. Apply installs them with a backup."
+  ],
+  [
+    "Compatibilidad H.264/AAC",
+    "H.264/AAC compatibility"
+  ],
+  [
+    "Reparar carpeta Video · WebM original",
+    "Repair Video folder · original WebM"
+  ],
+  [
+    "Invertir verticalmente los videos",
+    "Flip movies vertically"
+  ],
+  [
+    "Analizar",
+    "Analyze"
+  ],
+  [
+    "Preparar",
+    "Prepare"
+  ],
+  [
+    "Aplicar",
+    "Apply"
+  ],
+  [
+    "Restaurar",
+    "Restore"
+  ],
+  [
+    "Si Crimson está instalado, quitalo desde su sección antes de cambiar el parche de video. Cerrá la colección antes de aplicar o restaurar.",
+    "Remove Crimson from its section before changing the video patch. Close the collection before applying or restoring."
+  ],
+  [
+    "El paquete completo de Berthrage y C-Team: modos de juego, estilos, armas, cámara, HUD, efectos, sonidos y texturas.",
+    "The full package by Berthrage and C-Team: game modes, styles, weapons, camera, HUD, effects, sounds and textures."
+  ],
+  [
+    "La instalación es opcional. Respalda los archivos previos y las partidas de SavesDir, y conserva las cinemáticas corregidas.",
+    "Installation is optional. It backs up existing files and SavesDir saves, and preserves the fixed movies."
+  ],
+  [
+    "Instalar Crimson",
+    "Install Crimson"
+  ],
+  [
+    "Actualizar archivos del mod",
+    "Update mod files"
+  ],
+  [
+    "Quitar Crimson",
+    "Remove Crimson"
+  ],
+  [
+    "Guía en español",
+    "Guide (Spanish)"
+  ],
+  [
+    "Carga local del mod. Se guardan respaldos antes de instalar o actualizar.",
+    "The mod loads from the game folder. Files are backed up before installing or updating."
+  ],
+  [
+    "Cerrá el juego antes de instalar, actualizar o quitar Crimson. Los menús internos del mod conservan su idioma original.",
+    "Close the game before installing, updating or removing Crimson. The mod menus keep their original language."
+  ],
+  [
+    "Elegí primero la carpeta del juego en Resumen.",
+    "Choose the game folder in Overview first."
+  ],
+  [
+    "Listo",
+    "Ready"
+  ],
+  [
+    "Cancelar",
+    "Cancel"
+  ],
+  [
+    "REGISTRO DE ACTIVIDAD",
+    "ACTIVITY LOG"
+  ],
+  [
+    "Operación completada.",
+    "Operation completed."
+  ],
+  [
+    "Operación detenida. Revisá el registro.",
+    "Operation stopped. Check the activity log."
+  ],
+  [
+    "DETENIDO · {0}",
+    "STOPPED · {0}"
+  ],
+  [
+    "Analizando videos…",
+    "Analyzing movies…"
+  ],
+  [
+    "Preparando videos…",
+    "Preparing movies…"
+  ],
+  [
+    "Aplicando videos…",
+    "Applying movies…"
+  ],
+  [
+    "Restaurando videos…",
+    "Restoring movies…"
+  ],
+  [
+    "Analizando Crimson…",
+    "Analyzing Crimson…"
+  ],
+  [
+    "Instalando Crimson con respaldo…",
+    "Installing Crimson with backup…"
+  ],
+  [
+    "Actualizando archivos locales…",
+    "Updating local files…"
+  ],
+  [
+    "Quitando Crimson…",
+    "Removing Crimson…"
+  ],
+  [
+    "Analizando la carpeta del juego…",
+    "Checking the game folder…"
+  ],
+  [
+    "Comprobando instalación independiente…",
+    "Verifying independent installation…"
+  ],
+  [
+    "Comprobando los archivos y la configuración instalados…",
+    "Checking installed files and settings…"
+  ],
+  [
+    "La comprobación se detuvo. Revisá el registro de actividad.",
+    "Verification stopped. Check the activity log."
+  ],
+  [
+    "Verificado: {0} archivos completos dentro del juego. DMC3 Patch puede permanecer cerrado.",
+    "Verified: {0} complete files in the game folder. DMC3 Patch can stay closed."
+  ],
+  [
+    "Cancelando al terminar el paso actual…",
+    "Cancelling after the current step…"
+  ],
+  [
+    "Usá Cancelar y esperá a que termine la operación antes de salir.",
+    "Use Cancel and wait for the operation to finish before quitting."
+  ],
+  [
+    "Elegir Devil May Cry HD Collection",
+    "Choose Devil May Cry HD Collection"
+  ],
+  [
+    "Elegí la carpeta que contiene dmc3.exe y data. Solo se analizarán sus archivos.",
+    "Choose the folder containing dmc3.exe and data. Only its game files will be checked."
+  ],
+  [
+    "Elegir juego",
+    "Choose game"
+  ],
+  [
+    "Juego elegido: {0}",
+    "Selected game: {0}"
+  ],
+  [
+    "La selección no modifica archivos del juego.",
+    "Selecting a folder does not change the game files."
+  ],
+  [
+    "DMC3 Patch se usa para instalar, comprobar y restaurar. Elegí la carpeta del juego en Resumen. Después de aplicar, jugá desde Steam de Windows en CrossOver.",
+    "Use DMC3 Patch to install, verify and restore. Choose the game folder in Overview. After applying, play from Windows Steam in CrossOver."
+  ],
+  [
+    "STEAM EN CROSSOVER  ·  El juego usa sus archivos instalados. Guardá los respaldos para restaurar.",
+    "STEAM IN CROSSOVER  ·  The game uses its installed files. Keep backups to restore."
+  ],
+  [
+    "Acerca de DMC3 Patch",
+    "About DMC3 Patch"
+  ],
+  [
+    "Salir de DMC3 Patch",
+    "Quit DMC3 Patch"
+  ],
+  [
+    "Licencias originales",
+    "Original licenses"
+  ],
+  [
+    "CRIMSON Y COMPONENTES DEL MOD",
+    "CRIMSON AND MOD COMPONENTS"
+  ],
+  [
+    "HERRAMIENTAS DE LA APP",
+    "APP TOOLS"
+  ],
+  [
+    "REFERENCIAS CONSULTADAS",
+    "REFERENCES"
+  ],
+  [
+    "Elegí la carpeta del juego en Resumen antes de continuar.",
+    "Choose the game folder in Overview before continuing."
+  ],
+  [
+    "Elegí la carpeta de Devil May Cry HD Collection que contiene dmc3.exe y data/dmc3.",
+    "Choose the Devil May Cry HD Collection folder containing dmc3.exe and data/dmc3."
+  ],
+  [
+    "dmc3.exe no es un ejecutable de Windows válido.",
+    "dmc3.exe is not a valid Windows executable."
+  ],
+  [
+    "Esperá a que termine la operación activa antes de cambiar la carpeta del juego.",
+    "Wait for the current operation to finish before changing the game folder."
+  ],
+  [
+    "No hay una preparación lista. Usá Preparar antes de aplicar.",
+    "No preparation is ready. Use Prepare before applying."
+  ],
+  [
+    "No se encontró dmc3.exe en la carpeta autorizada.",
+    "dmc3.exe was not found in the selected folder."
+  ],
+  [
+    "DMC3 está abierto. Cerralo antes de aplicar o restaurar.",
+    "DMC3 is running. Close it before applying or restoring."
+  ],
+  [
+    "Cerrá toda la colección, incluido el launcher, y esperá a que Steam muestre Jugar antes de instalar o quitar Crimson.",
+    "Close the collection, including its launcher, and wait until Steam shows Play before installing or removing Crimson."
+  ],
+  [
+    "Quitá Crimson desde su pestaña antes de cambiar el parche de video.",
+    "Remove Crimson from its tab before changing the video patch."
+  ],
+  [
+    "Quitá Crimson desde su pestaña antes de restaurar el parche de video.",
+    "Remove Crimson from its tab before restoring the video patch."
+  ],
+  [
+    "Restaurá el parche activo antes de preparar otro.",
+    "Restore the active patch before preparing another one."
+  ],
+  [
+    "No hay un parche activo de esta app.",
+    "There is no active patch from this app."
+  ],
+  [
+    "Crimson no está instalado desde esta app.",
+    "Crimson was not installed by this app."
+  ],
+  [
+    "Crimson no instalado · opcional",
+    "Crimson not installed · optional"
+  ],
+  [
+    "Crimson {0} instalado · restaurable",
+    "Crimson {0} installed · restorable"
+  ],
+  [
+    "Crimson {0} · actualizar archivos locales",
+    "Crimson {0} · update local files"
+  ],
+  [
+    "Registro de Crimson pendiente de revisión",
+    "Crimson installation record needs checking"
+  ],
+  [
+    "Operación cancelada. El juego conserva su estado anterior.",
+    "Operation cancelled. The previous game state is preserved."
+  ],
+  [
+    "Verificando {0} archivos del paquete Crimson…",
+    "Verifying {0} Crimson package files…"
+  ],
+  [
+    "Guardando archivos previos y partidas antes de instalar…",
+    "Backing up existing files and saves before installing…"
+  ],
+  [
+    "Instalando Crimson completo y su compatibilidad con la edición de 2026…",
+    "Installing the full Crimson package and its 2026 compatibility files…"
+  ],
+  [
+    "Crimson actualizado usando solo archivos del juego. Las partidas y los ajustes externos se conservaron.",
+    "Crimson updated using game files only. Saves and external settings were preserved."
+  ],
+  [
+    "Los archivos locales del mod ya están actualizados.",
+    "The local mod files are already up to date."
+  ],
+  [
+    "Comprobando las copias instaladas dentro del juego…",
+    "Checking the copies installed in the game folder…"
+  ],
+  [
+    "Preparando {0} videos. El juego todavía no cambia.",
+    "Preparing {0} movies. The game is unchanged at this stage."
+  ],
+  [
+    "Aviso de {0}: {1}",
+    "Notice from {0}: {1}"
+  ],
+  [
+    "{0} terminó con error {1}:\n{2}",
+    "{0} exited with error {1}:\n{2}"
+  ],
+  [
+    "Crimson {0} instalado. El parche de video se conserva. Probalo desde Steam de Windows dentro de CrossOver.",
+    "Crimson {0} installed. The video patch is preserved. Test it from Windows Steam in CrossOver."
+  ],
+  [
+    "Respaldo: {0}",
+    "Backup: {0}"
+  ],
+  [
+    "Se detectó un enlace simbólico: {0}",
+    "A symbolic link was found: {0}"
+  ],
+  [
+    "No se admiten enlaces simbólicos: {0}",
+    "Symbolic links are not supported: {0}"
+  ],
+  [
+    "Los archivos cambiaron: {0}. No se sobrescribió esa carpeta.",
+    "Files changed: {0}. That folder was not overwritten."
+  ],
+  [
+    "Cambió {0}. La actualización se detuvo para conservar tus cambios.",
+    "{0} changed. The update stopped to preserve your changes."
+  ],
+  [
+    "Ya existe un archivo ajeno al mod: {0}",
+    "A file not owned by the mod already exists: {0}"
+  ],
+  [
+    "La preparación cambió o está incompleta: {0}",
+    "The prepared package changed or is incomplete: {0}"
+  ],
+  [
+    "Falta un archivo instalado: {0}. Revisá si Steam actualizó el juego.",
+    "An installed file is missing: {0}. Check whether Steam updated the game."
+  ],
+  [
+    "Berthrage y C-Team",
+    "Berthrage and C-Team"
+  ],
+  [
+    "Mod original. Equipo acreditado: Berthrage, Siyan, Darkness, deepdarkkapustka, Charlie, The Hitchhiker, RaccMoon, Lenam Lorbington, AirDragon, ZippoIG y Vainiuss1.",
+    "Original mod. Credited team: Berthrage, Siyan, Darkness, deepdarkkapustka, Charlie, The Hitchhiker, RaccMoon, Lenam Lorbington, AirDragon, ZippoIG and Vainiuss1."
+  ],
+  [
+    "Texturas restauradas de PS2",
+    "Restored PS2 textures"
+  ],
+  [
+    "Restauración de texturas utilizada por Crimson, según los créditos de sus autores.",
+    "Texture restoration used by Crimson, as acknowledged by the original authors."
+  ],
+  [
+    "Base de funciones y modificaciones incorporadas por Crimson. Licencia zlib del paquete.",
+    "Core features and modifications incorporated by Crimson. The package preserves its zlib license."
+  ],
+  [
+    "Compatibilidad de ejecutables",
+    "Executable compatibility"
+  ],
+  [
+    "ProjectXsent / colaboradores de DDMK",
+    "ProjectXsent / DDMK contributors"
+  ],
+  [
+    "Archivos de compatibilidad hdc_patches_2026. La adaptación local usa crimson_api.dll para conservar la API compartida de Steam.",
+    "The hdc_patches_2026 compatibility files. The local adaptation uses crimson_api.dll to preserve the shared Steam API."
+  ],
+  [
+    "Correcciones originales de Lyall. El perfil local añade metadatos PE para cargar esta biblioteca desde el juego, conservando su código y su licencia MIT.",
+    "Original fixes by Lyall. The local profile adds PE metadata to load the library from the game, preserving its code and MIT license."
+  ],
+  [
+    "ThirteenAG y colaboradores",
+    "ThirteenAG and contributors"
+  ],
+  [
+    "Cargador del paquete original, de ThirteenAG y colaboradores. El perfil local actual carga DMCHDFix directamente y no utiliza este proxy.",
+    "Loader from the original package, by ThirteenAG and contributors. The current local profile loads DMCHDFix directly and does not use this proxy."
+  ],
+  [
+    "Bibliotecas del paquete",
+    "Package libraries"
+  ],
+  [
+    "Autores y colaboradores acreditados en LICENSE.txt",
+    "Authors and contributors credited in LICENSE.txt"
+  ],
+  [
+    "SDL, GLM / G-Truc Creation, Effekseer Project, Dear ImGui / Omar Cornut, libzip / Dieter Baron y Thomas Klausner, RapidJSON / Tencent y Milo Yip, stb / Sean Barrett, zlib / Jean-loup Gailly y Mark Adler; también SDL_mixer, mpg123 y Json.NET / James Newton-King. Los avisos originales del paquete se conservan completos.",
+    "SDL, GLM / G-Truc Creation, Effekseer Project, Dear ImGui / Omar Cornut, libzip / Dieter Baron and Thomas Klausner, RapidJSON / Tencent and Milo Yip, stb / Sean Barrett, zlib / Jean-loup Gailly and Mark Adler; also SDL_mixer, mpg123 and Json.NET / James Newton-King. The original package notices are preserved in full."
+  ],
+  [
+    "FFmpeg y FFprobe 8.0.1",
+    "FFmpeg and FFprobe 8.0.1"
+  ],
+  [
+    "Equipo y colaboradores de FFmpeg",
+    "FFmpeg team and contributors"
+  ],
+  [
+    "Conversión y análisis de cinemáticas. Compilación local bajo LGPL 2.1 o posterior; fuentes y configuración conservadas en el proyecto.",
+    "Movie conversion and analysis. Built locally under LGPL 2.1 or later; source and build configuration are preserved in the project."
+  ],
+  [
+    "Josh MacDonald y colaboradores",
+    "Josh MacDonald and contributors"
+  ],
+  [
+    "Herramienta de preparación de los archivos compatibles. Apache 2.0. Se usa al preparar el paquete; no se necesita para jugar.",
+    "Tool used to prepare compatible files. Apache 2.0. Required for package preparation, not for playing."
+  ],
+  [
+    "App e integración para Mac",
+    "Mac app and integration"
+  ],
+  [
+    "Desarrollo local de este proyecto",
+    "Local project development"
+  ],
+  [
+    "Interfaz nativa en Swift y AppKit, motor de instalación y restauración, conversión compatible y guía en español. AppKit, CryptoKit y VideoToolbox son tecnologías de Apple.",
+    "Native Swift and AppKit interface, installation and recovery engine, compatible conversion and Spanish guide. AppKit, CryptoKit and VideoToolbox are Apple technologies."
+  ],
+  [
+    "Plataforma para ejecutar Steam de Windows y el juego. Se instala por separado. Esta app modifica únicamente los archivos del juego y sus propios respaldos; no configura CrossOver.",
+    "Platform used to run Windows Steam and the game. Installed separately. This app changes only game files and its own backups; it does not configure CrossOver."
+  ],
+  [
+    "Referencia para investigar los problemas WebM en CrossOver.",
+    "Reference for investigating WebM playback issues in CrossOver."
+  ],
+  [
+    "Referencia para analizar alternativas de reproducción de video.",
+    "Reference for investigating alternative video playback methods."
+  ],
+  [
+    "Reportes y conversión de cinemáticas",
+    "Reports and movie conversion"
+  ],
+  [
+    "Comunidad de Valve / Proton y Kyle P. Davis",
+    "Valve / Proton community and Kyle P. Davis"
+  ],
+  [
+    "Reporte Proton 4059 y script de recodificación de KylePDavis como referencias del diagnóstico. El motor de esta app se desarrolló localmente.",
+    "Proton issue 4059 and the KylePDavis conversion script were diagnostic references. This app uses a locally developed engine."
+  ],
+  [
+    "Devil May Cry pertenece a Capcom. Los autores originales conservan el crédito de sus componentes. La app y la adaptación para Mac se desarrollaron en este proyecto.",
+    "Devil May Cry belongs to Capcom. Original authors retain credit for their components. The Mac app and adaptation were developed in this project."
+  ],
+  [
+    "Actualización anterior recuperada. Podés repetirla.",
+    "The previous update was recovered. You can retry it."
+  ],
+  [
+    "Juego y parche",
+    "Game and patch"
+  ],
+  [
+    "Elegí el juego y administrá el parche de sus cinemáticas.",
+    "Choose the game and manage its movie patch."
+  ],
+  [
+    "2. Parche de video",
+    "2. Video patch"
+  ],
+  [
+    "Instalar",
+    "Install"
+  ],
+  [
+    "Remover",
+    "Remove"
+  ],
+  [
+    "Sin instalar",
+    "Not installed"
+  ],
+  [
+    "Instalar convierte los videos a H.264/AAC y los copia con respaldo. Remover recupera los archivos previos. Analizar comprueba qué hay instalado.",
+    "Install converts movies to H.264/AAC and copies them with a backup. Remove restores the previous files. Analyze checks what is installed."
+  ],
+  [
+    "Cerrá el juego antes de instalar o remover. Después, jugá desde Steam en CrossOver. Conservá los respaldos para restaurar.",
+    "Close the game before installing or removing. Then play from Steam in CrossOver. Keep the backups for restoration."
+  ],
+  [
+    "Elegí la carpeta del juego para analizar sus videos.",
+    "Choose the game folder to analyze its movies."
+  ],
+  [
+    "Usá Analizar para comprobar el estado del parche.",
+    "Use Analyze to check the patch status."
+  ],
+  [
+    "Analizando los archivos de video…",
+    "Checking movie files…"
+  ],
+  [
+    "No se pudo analizar",
+    "Analysis failed"
+  ],
+  [
+    "Parche de video instalado",
+    "Video patch installed"
+  ],
+  [
+    "Parche de video no instalado",
+    "Video patch not installed"
+  ],
+  [
+    "Parche de video incompleto",
+    "Incomplete video patch"
+  ],
+  [
+    "Videos con cambios por revisar",
+    "Movie changes need review"
+  ],
+  [
+    "Recuperación del parche pendiente",
+    "Patch recovery pending"
+  ],
+  [
+    "Videos compatibles sin respaldo registrado",
+    "Compatible movies with no registered backup"
+  ],
+  [
+    "{0} videos parcheados y verificados.",
+    "{0} patched movies verified."
+  ],
+  [
+    "{0} videos originales detectados. Instalar preparará y aplicará el parche.",
+    "{0} original movies detected. Install will prepare and apply the patch."
+  ],
+  [
+    "{0} videos originales verificados. El registro anterior estaba desactualizado; los respaldos se conservan.",
+    "{0} original movies verified. The previous record was outdated; backups are preserved."
+  ],
+  [
+    "{0} videos parcheados y {1} originales. Remover recupera los originales antes de reinstalar.",
+    "{0} patched movies and {1} originals. Remove restores the originals before reinstalling."
+  ],
+  [
+    "Se detectaron archivos distintos o faltantes. Revisá el registro antes de reemplazarlos.",
+    "Changed or missing files detected. Review the log before replacing them."
+  ],
+  [
+    "Usá Remover para recuperar el estado anterior.",
+    "Use Remove to recover the previous state."
+  ],
+  [
+    "Se detectó una conversión previa sin registro de esta app. No se pueden recuperar los originales desde esta instalación.",
+    "A previous conversion was detected with no record in this app. The originals cannot be recovered from this installation."
+  ],
+  [
+    "Archivos por revisar: {0}",
+    "Files to review: {0}"
+  ],
+  [
+    "Archivos faltantes: {0}",
+    "Missing files: {0}"
+  ],
+  [
+    "El parche de video ya está instalado. No se modificaron archivos.",
+    "The video patch is already installed. No files were changed."
+  ],
+  [
+    "Revisá el análisis y usá Remover para recuperar los originales antes de reinstalar.",
+    "Review the analysis and use Remove to recover the originals before reinstalling."
+  ],
+  [
+    "Usando la preparación de video verificada.",
+    "Using the verified movie preparation."
+  ],
+  [
+    "Instalando el parche de video…",
+    "Installing the video patch…"
+  ],
+  [
+    "Removiendo el parche de video…",
+    "Removing the video patch…"
+  ],
+  [
+    "Quitá Crimson antes de remover el parche antiguo que modificaba dmc3.exe.",
+    "Remove Crimson before removing the old patch that modified dmc3.exe."
+  ],
+  [
+    "Los videos originales están presentes. El parche de video no está instalado. Usá Instalar en Resumen.",
+    "The original movies are present. The video patch is not installed. Use Install in Overview."
+  ],
+  [
+    "v0.7.0\nInstalación local",
+    "v0.7.0\nLocal installation"
+  ],
+  [
+    "Registro de restauración inválido.",
+    "Invalid recovery record."
+  ],
+  [
+    "Registro de video inválido.",
+    "Invalid movie record."
+  ],
+  [
+    "Video duplicado en el registro.",
+    "Duplicate movie in the record."
+  ],
+  [
+    "El respaldo de dmc3.exe no coincide con su registro.",
+    "The dmc3.exe backup does not match its record."
+  ],
+  [
+    "El respaldo original de dmc3.exe cambió.",
+    "The original dmc3.exe backup has changed."
+  ],
+  [
+    "Quitar",
+    "Remove"
+  ],
+  [
+    "Crimson no instalado",
+    "Crimson not installed"
+  ],
+  [
+    "Crimson instalado",
+    "Crimson installed"
+  ],
+  [
+    "Crimson instalado · actualización disponible",
+    "Crimson installed · update available"
+  ],
+  [
+    "Crimson incompleto",
+    "Incomplete Crimson installation"
+  ],
+  [
+    "Crimson con cambios por revisar",
+    "Crimson changes need review"
+  ],
+  [
+    "Crimson: recuperación pendiente",
+    "Crimson: recovery pending"
+  ],
+  [
+    "Crimson sin registro de instalación",
+    "Crimson with no installation record"
+  ],
+  [
+    "Juego incompatible con el paquete Crimson",
+    "Game incompatible with the Crimson package"
+  ],
+  [
+    "Instalar añade el paquete completo con respaldo.",
+    "Install adds the complete package with a backup."
+  ],
+  [
+    "{0} archivos del mod verificados dentro del juego.",
+    "{0} mod files verified in the game folder."
+  ],
+  [
+    "Instalar actualiza los archivos locales y conserva los respaldos.",
+    "Install updates the local files and preserves the backups."
+  ],
+  [
+    "{0} de {1} archivos del mod verificados; {2} originales y {3} faltantes. Usá Quitar antes de instalar de nuevo.",
+    "{0} of {1} mod files verified; {2} originals and {3} missing. Use Remove before installing again."
+  ],
+  [
+    "{0} archivos del mod tienen cambios ajenos a la instalación. Revisá el registro; esos cambios se conservan.",
+    "{0} mod files have changes made outside this installation. Review the log; those changes are preserved."
+  ],
+  [
+    "Usá Quitar para recuperar la operación anterior.",
+    "Use Remove to recover the previous operation."
+  ],
+  [
+    "Se encontraron archivos de Crimson sin respaldo registrado. Revisá esa instalación antes de reemplazarla.",
+    "Crimson files were found without a registered backup. Review that installation before replacing it."
+  ],
+  [
+    "Los archivos base del juego no coinciden con el paquete preparado. Revisá el registro.",
+    "The base game files do not match the prepared package. Review the log."
+  ],
+  [
+    "Las acciones de Crimson usan la carpeta del juego elegida en Resumen.",
+    "Crimson actions use the game folder chosen in Overview."
+  ],
+  [
+    "Usá Analizar para comprobar los archivos de Crimson.",
+    "Use Analyze to check the Crimson files."
+  ],
+  [
+    "Analizando el juego y Crimson…",
+    "Analyzing the game and Crimson…"
+  ],
+  [
+    "Registro de Crimson inválido.",
+    "Invalid Crimson record."
+  ],
+  [
+    "v0.7.1\nInstalación local",
+    "v0.7.1\nLocal installation"
+  ],
+  [
+    "v0.8.0\nInstalación local",
+    "v0.8.0\nLocal installation"
+  ],
+  [
+    "Faltan herramientas del paquete. Volvé a copiar la app completa.",
+    "Package tools are missing. Copy the complete app again."
+  ],
+  [
+    "Parche aplicado a DMC3. Originales guardados en los datos de DMC3 Patch. Falta probar las cinemáticas en Steam/CrossOver.",
+    "Patch applied to DMC3. Originals saved in DMC3 Patch data. Movie testing in Steam/CrossOver is pending."
+  ],
+  [
+    "Estado anterior restaurado. Los respaldos originales permanecen en los datos de DMC3 Patch.",
+    "Previous state restored. Original backups remain in DMC3 Patch data."
+  ],
+  [
+    "v0.9.0\nInstalación local",
+    "v0.9.0\nLocal installation"
+  ],
+  [
+    "Seleccioná la carpeta que contiene el ejecutable de DMC3 y data. También se reconocen ejecutables renombrados compatibles.",
+    "Select the folder containing the DMC3 executable and data. Compatible renamed executables are also recognized."
+  ],
+  [
+    "Elegí la carpeta que contiene el ejecutable de DMC3 y data. Puede conservar su nombre personalizado.",
+    "Choose the folder containing the DMC3 executable and data. It can keep its custom filename."
+  ],
+  [
+    "Ejecutable detectado: {0}",
+    "Executable detected: {0}"
+  ],
+  [
+    "No se encontró un ejecutable reconocido de DMC3. Si está renombrado, debe coincidir con una versión compatible.",
+    "No recognized DMC3 executable was found. A renamed executable must match a supported version."
+  ],
+  [
+    "Elegí la carpeta que contiene el ejecutable de DMC3 y data/dmc3, aunque el ejecutable tenga otro nombre.",
+    "Choose the folder containing the DMC3 executable and data/dmc3, even if the executable has another name."
+  ],
+  [
+    "Cómo usar",
+    "How to use"
+  ],
+  [
+    "Carta de bienvenida",
+    "Welcome letter"
+  ],
+  [
+    "Hola. DMC3 Patch prepara las cinemáticas de Devil May Cry 3 para jugar en CrossOver y guarda un respaldo para restaurarlas.",
+    "Hello. DMC3 Patch prepares the Devil May Cry 3 cutscenes for CrossOver and keeps a backup so you can restore them."
+  ],
+  [
+    "Cómo aplicar el parche",
+    "How to apply the patch"
+  ],
+  [
+    "Cerrá la colección",
+    "Close the collection"
+  ],
+  [
+    "Cerrá DMC3 y el launcher antes de aplicar cambios.",
+    "Close DMC3 and the launcher before applying changes."
+  ],
+  [
+    "Elegí la carpeta del juego",
+    "Choose the game folder"
+  ],
+  [
+    "En Resumen, seleccioná la carpeta que contiene el ejecutable y data/dmc3.",
+    "In Overview, select the folder containing the executable and data/dmc3."
+  ],
+  [
+    "Instalá el parche de video",
+    "Install the video patch"
+  ],
+  [
+    "Pulsá Instalar. Cuando termine, abrí el juego desde Steam en CrossOver.",
+    "Click Install. When it finishes, open the game from Steam in CrossOver."
+  ],
+  [
+    "Podés instalar el mod opcional en Crimson. Usá Remover en Resumen si querés recuperar los videos originales.",
+    "You can install the optional mod in Crimson. Use Remove in Overview to restore the original videos."
+  ],
+  [
+    "Esta edición incluye el parche de video. Usá Remover en Resumen si querés recuperar los videos originales.",
+    "This edition includes the video patch. Use Remove in Overview to restore the original videos."
+  ],
+  [
+    "Empezar",
+    "Get started"
+  ],
+  [
+    "Edición de video",
+    "Video edition"
+  ],
+  [
+    "La edición de GitHub incluye el parche de video. Esta sección permite analizar o quitar una instalación previa de Crimson.",
+    "The GitHub edition includes the video patch. This section can analyze or remove an existing Crimson installation."
+  ],
+  [
+    "Esta edición incluye el parche de video. El instalador de Crimson requiere su paquete local.",
+    "This edition includes the video patch. The Crimson installer requires its local package."
+  ],
+  [
+    "El ZIP de Crimson no coincide con su huella de verificación.",
+    "The Crimson ZIP does not match its verification hash."
+  ],
+  [
+    "Descomprimiendo Crimson para esta instalación…",
+    "Extracting Crimson for this installation…"
+  ],
+  [
+    "Datos y respaldos",
+    "Data and backups"
+  ],
+  [
+    "Carpeta de datos de tu usuario",
+    "Data folder for your user account"
+  ],
+  [
+    "Acá se guardan las preferencias, los informes y los respaldos de DMC3 Patch.",
+    "DMC3 Patch stores its preferences, reports and backups here."
+  ],
+  [
+    "Abrir carpeta de datos en Finder",
+    "Open data folder in Finder"
+  ],
+  [
+    "Antes de borrar los respaldos",
+    "Before deleting backups"
+  ],
+  [
+    "Cerrá el juego. Si instalaste Crimson, usá Quitar en su pestaña. Después usá Remover en Resumen para recuperar las cinemáticas originales. Repetilo para cada instalación que quieras limpiar y cerrá DMC3 Patch antes de borrar archivos.",
+    "Close the game. If you installed Crimson, use Remove in its tab. Then use Remove in Overview to restore the original cutscenes. Repeat for each installation you want to clean up, then quit DMC3 Patch before deleting files."
+  ],
+  [
+    "Borrar los datos de la app deja los cambios aplicados en el juego y elimina los respaldos para deshacerlos.",
+    "Deleting the app data leaves the game patched and removes the backups you need to undo those changes."
+  ],
+  [
+    "Preferencias",
+    "Preferences"
+  ],
+  [
+    "Están en la carpeta de datos. Si los borrás, se reinician respectivamente la carpeta elegida, el idioma y la bienvenida.",
+    "These files are in the data folder. Deleting them resets the selected folder, the language and the welcome letter, respectively."
+  ],
+  [
+    "Registros e informes",
+    "Logs and reports"
+  ],
+  [
+    "Incluye app.log y los informes de análisis. Podés borrarlos con la app cerrada.",
+    "This folder contains app.log and analysis reports. You can delete them after quitting the app."
+  ],
+  [
+    "Archivos temporales",
+    "Temporary files"
+  ],
+  [
+    "Podés borrar esta carpeta con la app cerrada. Se vuelve a crear cuando hace falta.",
+    "You can delete this folder after quitting the app. The app recreates it when needed."
+  ],
+  [
+    "Respaldos de video de la instalación elegida",
+    "Video backups for the selected installation"
+  ],
+  [
+    "Contiene preparaciones y copias de los videos originales. Los registros active-patch.json y latest-prepared.txt se guardan junto a runs.",
+    "This folder holds prepared files and copies of the original videos. The active-patch.json and latest-prepared.txt records are stored next to runs."
+  ],
+  [
+    "Respaldos de Crimson de la instalación elegida",
+    "Crimson backups for the selected installation"
+  ],
+  [
+    "Contiene archivos originales y copias de partidas si había un SavesDir. El registro installed.json se guarda en la carpeta que contiene backups.",
+    "This folder holds original files and save copies if SavesDir was present. The installed.json record is stored in the folder that contains backups."
+  ],
+  [
+    "Respaldos por instalación",
+    "Backups by installation"
+  ],
+  [
+    "Elegí el juego en Resumen para ver las rutas exactas. Las instalaciones anteriores pueden tener sus respaldos directamente en la carpeta de datos.",
+    "Choose the game in Overview to see the exact paths. Older installations may store their backups directly in the data folder."
+  ]
+]
