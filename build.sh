@@ -38,8 +38,8 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
 <key>CFBundleName</key><string>DMC3 Patch</string>
 <key>CFBundleDisplayName</key><string>DMC3 Patch</string>
 <key>CFBundlePackageType</key><string>APPL</string>
-<key>CFBundleShortVersionString</key><string>0.10.4</string>
-<key>CFBundleVersion</key><string>17</string>
+<key>CFBundleShortVersionString</key><string>0.10.5</string>
+<key>CFBundleVersion</key><string>18</string>
 <key>CFBundleIconFile</key><string>DMC3Patch.icns</string>
 <key>LSMinimumSystemVersion</key><string>13.0</string>
 <key>NSHighResolutionCapable</key><true/>
@@ -48,7 +48,7 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
 </dict></plist>
 PLIST
 TOOL_DIR="$APP/Contents/Resources/Project/tools/bin"
-for binary in "$TOOL_DIR"/lib/*.dylib "$TOOL_DIR/ffmpeg" "$TOOL_DIR/ffprobe"; do
+for binary in "$TOOL_DIR"/lib/*.dylib "$TOOL_DIR/ffmpeg" "$TOOL_DIR/ffprobe" "$TOOL_DIR/xdelta3decode"; do
   /usr/bin/codesign --force --sign - "$binary"
 done
 /usr/bin/codesign --force --sign - "$APP"

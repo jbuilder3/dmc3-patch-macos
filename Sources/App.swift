@@ -240,9 +240,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         heading("Crimson 0.5a", symbol: "flame", in: stack)
         fullWidth(text("El paquete completo de Berthrage y C-Team: modos de juego, estilos, armas, cámara, HUD, efectos, sonidos y texturas.", size: 13, color: .labelColor), in: stack)
         modStatus.font = .systemFont(ofSize: 12, weight: .semibold); modStatus.textColor = .systemGreen; fullWidth(modStatus, in: stack)
-        let description = CrimsonPaths.hasInstaller
+        let description = CrimsonPaths.hasBundledInstaller
             ? "La instalación es opcional. Respalda los archivos previos y las partidas de SavesDir, y conserva las cinemáticas corregidas."
-            : "La edición de GitHub incluye el parche de video. Esta sección permite analizar o quitar una instalación previa de Crimson."
+            : "Instalar descarga el paquete oficial de Crimson (400 MB) y lo adapta a CrossOver. Se guardan los archivos originales y las partidas de SavesDir."
         fullWidth(text(description), in: stack)
         modDetail.font = .systemFont(ofSize: 12); modDetail.textColor = Palette.muted; fullWidth(modDetail, in: stack)
         let actions = row(spacing: 10)
@@ -321,8 +321,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         let help = button("Cómo usar", #selector(openWelcome), needsGame: false)
         sideStack.setCustomSpacing(20, after: navigation[navigation.count - 1])
         fullWidth(help, in: sideStack)
-        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.10.4"
-        let sideFooter = text("v\(version)\n" + (CrimsonPaths.hasInstaller ? "Instalación local" : "Edición de video"), size: 10); sideFooter.translatesAutoresizingMaskIntoConstraints = false; sidebar.addSubview(sideFooter)
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.10.5"
+        let sideFooter = text("v\(version)\n" + (CrimsonPaths.hasBundledInstaller ? "Instalación local" : "Edición de GitHub"), size: 10); sideFooter.translatesAutoresizingMaskIntoConstraints = false; sidebar.addSubview(sideFooter)
         NSLayoutConstraint.activate([sideFooter.leadingAnchor.constraint(equalTo: sidebar.leadingAnchor, constant: 22), sideFooter.bottomAnchor.constraint(equalTo: sidebar.bottomAnchor, constant: -22)])
         let stack = column(spacing: 12); stack.translatesAutoresizingMaskIntoConstraints = false; root.addSubview(stack)
         NSLayoutConstraint.activate([stack.leadingAnchor.constraint(equalTo: sidebar.trailingAnchor, constant: 24), stack.trailingAnchor.constraint(equalTo: root.trailingAnchor, constant: -24), stack.topAnchor.constraint(equalTo: root.topAnchor, constant: 22), stack.bottomAnchor.constraint(equalTo: root.bottomAnchor, constant: -18)])

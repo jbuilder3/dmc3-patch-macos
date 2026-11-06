@@ -1042,5 +1042,33 @@
   [
     "Elegí el juego en Resumen para ver las rutas exactas. Las instalaciones anteriores pueden tener sus respaldos directamente en la carpeta de datos.",
     "Choose the game in Overview to see the exact paths. Older installations may store their backups directly in the data folder."
+  ],
+  [
+    "Instalar descarga el paquete oficial de Crimson (400 MB) y lo adapta a CrossOver. Se guardan los archivos originales y las partidas de SavesDir.",
+    "Install downloads the official Crimson package (400 MB) and prepares it for CrossOver. Original files and any SavesDir game saves are backed up."
+  ],
+  [
+    "Edición de GitHub",
+    "GitHub edition"
+  ],
+  [
+    "Faltan las herramientas de Crimson. Volvé a descargar DMC3 Patch.",
+    "Crimson tools are missing. Download DMC3 Patch again."
+  ],
+  [
+    "No se encontró una copia original compatible de {0}.",
+    "A compatible original copy of {0} could not be found."
+  ],
+  [
+    "Descargando Crimson 0.5a desde su release oficial (400 MB)…",
+    "Downloading Crimson 0.5a from its official release (400 MB)…"
+  ],
+  [
+    "La descarga de Crimson no coincide con su huella de verificación.",
+    "The Crimson download does not match its verification hash."
+  ],
+  [
+    "Preparando los archivos de Crimson para CrossOver…",
+    "Preparing the Crimson files for CrossOver…"
   ]
 ]

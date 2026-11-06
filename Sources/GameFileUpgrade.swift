@@ -57,7 +57,17 @@ extension CrimsonInstaller {
             }
             let paths = Set(previous.files.map(\.path) + recipe.files.map(\.path)).filter { old[$0]?.installedHash != target[$0]?.hash }.sorted()
             guard !paths.isEmpty || previous.deployment != "game-files-only-v1" else { engine.log("Los archivos locales del mod ya están actualizados."); return }
-            let payload = try unpackPayload(recipe)
+            var originals: [String: URL] = [:]
+            if !CrimsonPaths.hasBundledInstaller {
+                let saved = backup.appendingPathComponent("original", isDirectory: true)
+                for base in recipe.baseFiles {
+                    let name = try baseURL(base.path).lastPathComponent
+                    if let file = old[name], file.originalHash != nil {
+                        originals[base.path] = try safeURL(saved, file.originalPath ?? file.path)
+                    }
+                }
+            }
+            let payload = try unpackPayload(recipe, originals: originals)
             defer { releasePayload(payload) }
             try verifyPayload(recipe, in: payload)
             let id = UUID().uuidString; let snapshots = backup.appendingPathComponent("updates/" + id)

@@ -14,7 +14,8 @@ licenses = resources / "licenses"
 files = [
     "build.sh", "README.md", "LICENSE",
     "tools/package-resources.py", "tools/build-ffmpeg.sh",
-    "tools/bin/ffmpeg", "tools/bin/ffprobe",
+    "tools/bin/ffmpeg", "tools/bin/ffprobe", "tools/bin/xdelta3decode",
+    "tools/downloads/xdelta3-3.2.2.tar.gz", "docs/Xdelta-LICENSE.txt",
     "tools/downloads/ffmpeg-8.0.1.tar.xz",
     "docs/Translations.json", "docs/CREDITOS.json",
     "docs/GUIA-CRIMSON-ES.html", "docs/COPYING.LGPLv2.1",
@@ -23,6 +24,10 @@ files = [
 ]
 files.extend(str(p.relative_to(source)) for p in sorted((source / "Sources").glob("*.swift")))
 files.extend(str(p.relative_to(source)) for p in sorted((source / "tools/bin/lib").glob("*.dylib")))
+files.extend(f"mods/crimson/compat/{name}.vcdiff" for name in (
+    "dmc3.exe", "dmcLauncher.exe", "crimson_api.dll",
+    "dmcload.dll", "DMCHDFix.asi", "DMCHDFix.ini",
+))
 if variant == "local":
     files.append("mods/crimson/prepared/payload.zip")
 
@@ -55,5 +60,6 @@ target_manifest.write_text(json.dumps(recipe, indent=2, ensure_ascii=False) + "\
 
 licenses.mkdir(parents=True)
 shutil.copy2(project / "LICENSE", licenses / "DMC3-Patch-MIT.txt")
+shutil.copy2(project / "docs/Xdelta-LICENSE.txt", licenses / "Xdelta-LICENSE.txt")
 for name in ["COPYING.LGPLv2.1", "THIRD-PARTY.md", "CRIMSON-THIRD-PARTY.md", "PERMISOS.md", "CREDITOS.md", "Crimson-LICENSE.txt"]:
     shutil.copy2(project / "docs" / name, licenses)

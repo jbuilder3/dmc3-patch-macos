@@ -8,7 +8,7 @@ La app usa la carpeta del juego elegida en Resumen, los recursos de su paquete y
 
 El perfil actual carga el mod desde archivos locales. No necesita cambios de DLL en `user.reg`. Actualizar una instalación anterior conserva los metadatos de su versión previa como respaldo y no accede al entorno anterior.
 
-La app no requiere administrador, accesibilidad, automatización de otras apps, cámara, micrófono, grabación de pantalla ni acceso completo al disco. Si macOS pide acceso a un disco extraíble o a la carpeta elegida, corresponde a la ubicación seleccionada. FFmpeg no incluye protocolos de red. Las búsquedas en Documentos personales y los enlaces de SavesDir hacia otras ubicaciones no se utilizan.
+La app no requiere administrador, accesibilidad, automatización de otras apps, cámara, micrófono, grabación de pantalla ni acceso completo al disco. Si macOS pide acceso a un disco extraíble o a la carpeta elegida, corresponde a la ubicación seleccionada. FFmpeg no incluye protocolos de red. Al pulsar Instalar en Crimson, la edición pública descarga el paquete oficial de GitHub y lo prepara en su carpeta temporal. Las búsquedas en Documentos personales y los enlaces de SavesDir hacia otras ubicaciones no se utilizan.
 
 Esta versión no usa App Sandbox: las validaciones de rutas no son un aislamiento por carpeta impuesto por el sistema. La carta de bienvenida guarda su estado en la misma carpeta de datos de la app.
 

@@ -6,10 +6,17 @@ enum CrimsonPaths {
     static let prepared = root.appendingPathComponent("prepared", isDirectory: true)
     static let payload = prepared.appendingPathComponent("payload", isDirectory: true)
     static let archive = prepared.appendingPathComponent("payload.zip")
-    static var hasInstaller: Bool {
+    static let compatibility = root.appendingPathComponent("compat", isDirectory: true)
+    static let decoder = Paths.assets.appendingPathComponent("tools/bin/xdelta3decode")
+    static var hasBundledInstaller: Bool {
         FileManager.default.fileExists(atPath: archive.path) ||
         FileManager.default.fileExists(atPath: payload.path)
     }
+    static var hasDownloadInstaller: Bool {
+        FileManager.default.isExecutableFile(atPath: decoder.path) &&
+        FileManager.default.fileExists(atPath: compatibility.path)
+    }
+    static var hasInstaller: Bool { hasBundledInstaller || hasDownloadInstaller }
     static let recipe = prepared.appendingPathComponent("manifest.json")
     static var backups: URL { Paths.dataRoot.appendingPathComponent("mods/crimson/backups", isDirectory: true) }
 
@@ -170,22 +177,23 @@ final class CrimsonInstaller {
         if path == "dmc3.exe" { return Paths.exe }
         return try safeURL(Paths.game, path)
     }
-    // Called under the operation lock. The signed manifest pins the exact ZIP
-    // before extraction, and the existing file-level checks verify its contents.
-    func unpackPayload(_ recipe: ModRecipe) throws -> URL {
+    // Called under the operation lock. Every prepared file is verified
+    // against the signed manifest before the game installation is changed.
+    func unpackPayload(_ recipe: ModRecipe, originals: [String: URL] = [:]) throws -> URL {
         if engine.exists(CrimsonPaths.payload) { return CrimsonPaths.payload }
-        guard engine.exists(CrimsonPaths.archive) else {
-            throw PatchError("Esta edición incluye el parche de video. El instalador de Crimson requiere su paquete local.")
-        }
-        guard let expected = recipe.archiveSHA256, expected.count == 64,
-              try engine.hash(CrimsonPaths.archive) == expected else {
-            throw PatchError("El ZIP de Crimson no coincide con su huella de verificación.")
-        }
         let temporary = Paths.project.appendingPathComponent(".build/tmp/crimson-" + UUID().uuidString, isDirectory: true)
         try fm.createDirectory(at: temporary, withIntermediateDirectories: false)
         do {
-            engine.log("Descomprimiendo Crimson para esta instalación…")
-            try engine.run(URL(fileURLWithPath: "/usr/bin/ditto"), ["-x", "-k", CrimsonPaths.archive.path, temporary.path])
+            if engine.exists(CrimsonPaths.archive) {
+                guard let expected = recipe.archiveSHA256, expected.count == 64,
+                      try engine.hash(CrimsonPaths.archive) == expected else {
+                    throw PatchError("El ZIP de Crimson no coincide con su huella de verificación.")
+                }
+                engine.log("Descomprimiendo Crimson para esta instalación…")
+                try engine.run(URL(fileURLWithPath: "/usr/bin/ditto"), ["-x", "-k", CrimsonPaths.archive.path, temporary.path])
+            } else {
+                try prepareDownloadedPayload(recipe, originals: originals, in: temporary)
+            }
             return temporary
         } catch {
             try? fm.removeItem(at: temporary)
@@ -297,14 +305,20 @@ final class CrimsonInstaller {
         try engine.write(state, backup.appendingPathComponent("manifest.json"))
         try engine.write(state, Paths.modState)
     }
+    private func verifyGameBase(_ recipe: ModRecipe) throws {
+        for base in recipe.baseFiles {
+            guard try engine.hash(baseURL(base.path)) == base.hash else {
+                throw PatchError("\(base.path) cambió. La instalación se detuvo antes de modificar el juego.")
+            }
+        }
+    }
+
     func install() throws {
         try engine.withLock {
             try validateLayout(); try assertCollectionClosed()
             guard !engine.exists(Paths.modState) else { throw PatchError("Crimson ya está instalado o tiene una recuperación pendiente. Usá Quitar Crimson antes de reinstalar.") }
             let recipe = try loadRecipe()
-            for base in recipe.baseFiles {
-                guard try engine.hash(baseURL(base.path)) == base.hash else { throw PatchError("\(base.path) cambió. La instalación se detuvo antes de modificar el juego.") }
-            }
+            try verifyGameBase(recipe)
             let payload = try unpackPayload(recipe)
             defer { releasePayload(payload) }
             try verifyPayload(recipe, in: payload)
@@ -349,6 +363,7 @@ final class CrimsonInstaller {
             state.saveBackupPaths = try backupSaves(to: backup)
             state.deployment = "game-files-only-v1"
             try assertCollectionClosed(); try engine.checkCancel()
+            try verifyGameBase(recipe)
             // Recheck all overwritten files immediately before committing the journal.
             for file in state.files {
                 let destination = try safeURL(Paths.game, file.path)
