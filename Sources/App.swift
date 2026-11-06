@@ -26,7 +26,7 @@ private final class MissionArt: NSView {
             return
         }
 
-        // Vector artwork for the edition distributed without game images.
+        // Fallback for development runs outside the app bundle.
         guard let context = NSGraphicsContext.current?.cgContext else { return }
         let scale = min(bounds.width, bounds.height) * 0.94 / 100
         context.saveGState()
@@ -321,7 +321,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         let help = button("Cómo usar", #selector(openWelcome), needsGame: false)
         sideStack.setCustomSpacing(20, after: navigation[navigation.count - 1])
         fullWidth(help, in: sideStack)
-        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.10.3"
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.10.4"
         let sideFooter = text("v\(version)\n" + (CrimsonPaths.hasInstaller ? "Instalación local" : "Edición de video"), size: 10); sideFooter.translatesAutoresizingMaskIntoConstraints = false; sidebar.addSubview(sideFooter)
         NSLayoutConstraint.activate([sideFooter.leadingAnchor.constraint(equalTo: sidebar.leadingAnchor, constant: 22), sideFooter.bottomAnchor.constraint(equalTo: sidebar.bottomAnchor, constant: -22)])
         let stack = column(spacing: 12); stack.translatesAutoresizingMaskIntoConstraints = false; root.addSubview(stack)

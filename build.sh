@@ -38,17 +38,15 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
 <key>CFBundleName</key><string>DMC3 Patch</string>
 <key>CFBundleDisplayName</key><string>DMC3 Patch</string>
 <key>CFBundlePackageType</key><string>APPL</string>
-<key>CFBundleShortVersionString</key><string>0.10.3</string>
-<key>CFBundleVersion</key><string>16</string>
+<key>CFBundleShortVersionString</key><string>0.10.4</string>
+<key>CFBundleVersion</key><string>17</string>
+<key>CFBundleIconFile</key><string>DMC3Patch.icns</string>
 <key>LSMinimumSystemVersion</key><string>13.0</string>
 <key>NSHighResolutionCapable</key><true/>
 <key>NSQuitAlwaysKeepsWindows</key><false/>
 <key>NSHumanReadableCopyright</key><string>DMC3 Patch. Original authors and licenses included.</string>
 </dict></plist>
 PLIST
-if [[ -f "$APP/Contents/Resources/DMC3Patch.icns" ]]; then
-  /usr/bin/plutil -insert CFBundleIconFile -string DMC3Patch.icns "$APP/Contents/Info.plist"
-fi
 TOOL_DIR="$APP/Contents/Resources/Project/tools/bin"
 for binary in "$TOOL_DIR"/lib/*.dylib "$TOOL_DIR/ffmpeg" "$TOOL_DIR/ffprobe"; do
   /usr/bin/codesign --force --sign - "$binary"

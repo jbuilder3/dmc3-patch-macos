@@ -15,7 +15,7 @@ La descarga pública incluye el parche de video para DMC3. La sección **Crimson
 
 ## Cómo usarlo
 
-1. Descargá `DMC3-Patch-0.10.3-arm64.zip` desde [Releases](https://github.com/jbuilder3/dmc3-patch-macos/releases/tag/v0.10.3). Descomprimilo y abrí **DMC3 Patch.app**. La app tiene firma ad hoc y macOS puede pedir autorización para abrirla. [Guía de Apple para abrir apps en la Mac](https://support.apple.com/es-mx/102445).
+1. Descargá `DMC3-Patch-0.10.4-arm64.zip` desde [Releases](https://github.com/jbuilder3/dmc3-patch-macos/releases/tag/v0.10.4). Descomprimilo y abrí **DMC3 Patch.app**. La app tiene firma ad hoc y macOS puede pedir autorización para abrirla. [Guía de Apple para abrir apps en la Mac](https://support.apple.com/es-mx/102445).
 2. En Steam, dentro de CrossOver, buscá **Devil May Cry HD Collection** y usá **Administrar → Ver archivos locales** para ubicar el juego. Cerrá DMC3 y el launcher antes de instalar el parche.
 3. En DMC3 Patch, abrí **Resumen → Elegir carpeta del juego** y seleccioná la carpeta que contiene el ejecutable de DMC3 y `data/dmc3`.
 4. Pulsá **Analizar** para comprobar el estado del juego. Si corresponde, pulsá **Instalar** y esperá a que termine la conversión.

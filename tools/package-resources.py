@@ -34,13 +34,13 @@ for path in files:
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(original, target)
 
-if variant == "local":
-    icon_name = "DMC3Patch.icns"
-    icon = source / "artwork" / icon_name
-    if source.name == "Project" and source.parent.name == "Resources":
-        icon = source.parent / icon_name
-    if icon.is_file() and not icon.is_symlink():
-        shutil.copy2(icon, resources / icon_name)
+icon_name = "DMC3Patch.icns"
+icon = source / "artwork" / icon_name
+if source.name == "Project" and source.parent.name == "Resources":
+    icon = source.parent / icon_name
+if not icon.is_file() or icon.is_symlink():
+    raise SystemExit(f"Missing app icon: {icon}")
+shutil.copy2(icon, resources / icon_name)
 
 manifest = Path("mods/crimson/prepared/manifest.json")
 recipe = json.loads((source / manifest).read_text())

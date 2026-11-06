@@ -2,7 +2,7 @@
 
 Los autores originales conservan el crédito de sus componentes. Esta app es una integración local para macOS. Devil May Cry pertenece a Capcom.
 
-El emblema de la edición local compone las imágenes de Rebellion y Yamato de la rueda de armas de DMC3 Crimson 0.5a. Devil May Cry y los diseños de las armas pertenecen a Capcom. [DMC3 Crimson](https://github.com/berthrage/DMC3-Crimson/tree/V0.5a).
+El emblema y el ícono de macOS combinan las imágenes de Rebellion y Yamato de la rueda de armas de DMC3 Crimson 0.5a. Devil May Cry y los diseños de las armas pertenecen a Capcom. La licencia MIT del proyecto cubre el código propio. [DMC3 Crimson 0.5a](https://github.com/berthrage/DMC3-Crimson/releases/tag/V0.5a).
 
 ## Crimson y componentes del mod
 
