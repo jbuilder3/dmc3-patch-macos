@@ -1090,5 +1090,49 @@
   [
     "No se pudo extraer un archivo completo de Crimson. Revisá {0}.",
     "A complete Crimson file could not be extracted. Check {0}."
+  ],
+  [
+    "Guía de instalación",
+    "Installation guide"
+  ],
+  [
+    "Descargá Crimson 0.5a",
+    "Download Crimson 0.5a"
+  ],
+  [
+    "Guardá el paquete completo en ZIP o RAR. Seleccionalo directamente desde el disco donde lo guardaste.",
+    "Keep the full package as a ZIP or RAR. Select it from the drive where you saved it."
+  ],
+  [
+    "Elegí el juego y cerrá la colección",
+    "Choose the game and close the collection"
+  ],
+  [
+    "En Resumen, elegí la carpeta que contiene el ejecutable de DMC3 y data/dmc3. Cerrá el juego y el launcher, y esperá a que Steam muestre Jugar.",
+    "In Overview, choose the folder containing the DMC3 executable and data/dmc3. Close the game and launcher, and wait for Steam to show Play."
+  ],
+  [
+    "Seleccioná y comprobá el archivo",
+    "Select and check the archive"
+  ],
+  [
+    "En Crimson, pulsá Elegir ZIP o RAR de Crimson. Cuando aparezca Archivo listo, usá Analizar para comprobar la instalación.",
+    "In Crimson, click Choose Crimson ZIP or RAR. When Archive ready appears, click Analyze to check the installation."
+  ],
+  [
+    "Instalá el mod",
+    "Install the mod"
+  ],
+  [
+    "Pulsá Instalar y esperá a que la app confirme Crimson instalado. Después abrí el juego desde Steam en CrossOver.",
+    "Click Install and wait for the app to confirm Crimson installed. Then open the game from Steam in CrossOver."
+  ],
+  [
+    "Si Instalar está desactivado, revisá el resultado de Analizar. Si dice Crimson sin registro de instalación, elegí una copia limpia del juego.",
+    "If Install is disabled, check the Analyze result. If it says Crimson has no installation record, choose a clean copy of the game."
+  ],
+  [
+    "Para quitar el mod, cerrá la colección y pulsá Quitar en Crimson. La app restaura los archivos que respaldó al instalar.",
+    "To remove the mod, close the collection and click Remove in Crimson. The app restores the files it backed up during installation."
   ]
 ]

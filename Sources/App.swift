@@ -260,7 +260,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             actions.addArrangedSubview(action)
         }
         stack.addArrangedSubview(actions)
-        stack.addArrangedSubview(button("Guía en español", #selector(openGuide), needsGame: false))
+        stack.addArrangedSubview(button("Guía de instalación", #selector(openCrimsonInstallGuide), needsGame: false))
         scopeNotice.font = .systemFont(ofSize: 11); scopeNotice.textColor = Palette.muted
         fullWidth(scopeNotice, in: stack)
         fullWidth(text("Cerrá el juego antes de instalar, actualizar o quitar Crimson. Los menús internos del mod conservan su idioma original.", size: 11), in: stack)
@@ -326,7 +326,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         let help = button("Cómo usar", #selector(openWelcome), needsGame: false)
         sideStack.setCustomSpacing(20, after: navigation[navigation.count - 1])
         fullWidth(help, in: sideStack)
-        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.10.6"
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.10.7"
         let sideFooter = text("v\(version)\n" + "Edición de GitHub", size: 10); sideFooter.translatesAutoresizingMaskIntoConstraints = false; sidebar.addSubview(sideFooter)
         NSLayoutConstraint.activate([sideFooter.leadingAnchor.constraint(equalTo: sidebar.leadingAnchor, constant: 22), sideFooter.bottomAnchor.constraint(equalTo: sidebar.bottomAnchor, constant: -22)])
         let stack = column(spacing: 12); stack.translatesAutoresizingMaskIntoConstraints = false; root.addSubview(stack)
@@ -483,16 +483,60 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         return field
     }
 
-    private func makeStorageGuide() -> NSView {
+    private func guideScroll(_ entries: NSStackView) -> NSScrollView {
         let scroll = NSScrollView()
         scroll.hasVerticalScroller = true
         scroll.drawsBackground = false
         let document = FlippedDocumentView()
-        let entries = column(spacing: 14)
         inset(document, content: entries, amount: 12)
         scroll.documentView = document
         document.translatesAutoresizingMaskIntoConstraints = false
         document.widthAnchor.constraint(equalTo: scroll.contentView.widthAnchor).isActive = true
+        return scroll
+    }
+
+    private func addGuideSteps(_ steps: [(String, String)], to stack: NSStackView) {
+        for (index, step) in steps.enumerated() {
+            let line = row(spacing: 12)
+            let number = letter(String(format: "%02d", index + 1), size: 12, bold: true)
+            number.font = .monospacedSystemFont(ofSize: 12, weight: .semibold)
+            number.textColor = Palette.wax
+            number.widthAnchor.constraint(equalToConstant: 24).isActive = true
+            line.addArrangedSubview(number)
+            let details = column(spacing: 3)
+            fullWidth(letter(step.0, bold: true), in: details)
+            fullWidth(letter(step.1), in: details)
+            line.addArrangedSubview(details)
+            fullWidth(line, in: stack)
+        }
+    }
+
+    private func makeCrimsonInstallGuide() -> NSView {
+        let entries = column(spacing: 13)
+        addGuideSteps([
+            ("Descargá Crimson 0.5a", "Guardá el paquete completo en ZIP o RAR. Seleccionalo directamente desde el disco donde lo guardaste."),
+            ("Elegí el juego y cerrá la colección", "En Resumen, elegí la carpeta que contiene el ejecutable de DMC3 y data/dmc3. Cerrá el juego y el launcher, y esperá a que Steam muestre Jugar."),
+            ("Seleccioná y comprobá el archivo", "En Crimson, pulsá Elegir ZIP o RAR de Crimson. Cuando aparezca Archivo listo, usá Analizar para comprobar la instalación."),
+            ("Instalá el mod", "Pulsá Instalar y esperá a que la app confirme Crimson instalado. Después abrí el juego desde Steam en CrossOver.")
+        ], to: entries)
+        fullWidth(letter("Si Instalar está desactivado, revisá el resultado de Analizar. Si dice Crimson sin registro de instalación, elegí una copia limpia del juego.", size: 12), in: entries)
+        fullWidth(letter("Para quitar el mod, cerrá la colección y pulsá Quitar en Crimson. La app restaura los archivos que respaldó al instalar.", size: 12), in: entries)
+        let links = row()
+        for (title, url) in [
+            ("Nexus Mods", "https://www.nexusmods.com/devilmaycryhdcollection/mods/272?tab=files"),
+            ("GitHub", "https://github.com/berthrage/DMC3-Crimson/releases/tag/V0.5a")
+        ] {
+            let link = NSButton(title: title, target: self, action: #selector(openCredit(_:)))
+            link.identifier = NSUserInterfaceItemIdentifier(url)
+            links.addArrangedSubview(link)
+        }
+        links.addArrangedSubview(NSButton(title: L10n.text("Guía en español"), target: self, action: #selector(openGuide)))
+        fullWidth(links, in: entries)
+        return guideScroll(entries)
+    }
+
+    private func makeStorageGuide() -> NSView {
+        let entries = column(spacing: 14)
 
         func addEntry(_ title: String, path: String, detail: String) {
             let entry = column(spacing: 4)
@@ -531,12 +575,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             addEntry("Respaldos por instalación", path: "installations/<id>/runs · installations/<id>/mods/crimson/backups",
                      detail: "Elegí el juego en Resumen para ver las rutas exactas. Las instalaciones anteriores pueden tener sus respaldos directamente en la carpeta de datos.")
         }
-        return scroll
+        return guideScroll(entries)
     }
 
     @objc private func openDataFolder() { NSWorkspace.shared.open(Paths.project) }
 
-    private func presentWelcome(firstLaunch: Bool = false) {
+    @objc private func openCrimsonInstallGuide() { presentWelcome(section: "Instalar Crimson") }
+
+    private func presentWelcome(firstLaunch: Bool = false, section: String = "Cómo aplicar el parche") {
         guard !busy, welcomePanel == nil else { return }
         let panel = NSPanel(contentRect: NSRect(x: 0, y: 0, width: 650, height: 620),
                             styleMask: [.titled], backing: .buffered, defer: false)
@@ -576,30 +622,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             ("Elegí la carpeta del juego", "En Resumen, seleccioná la carpeta que contiene el ejecutable y data/dmc3."),
             ("Instalá el parche de video", "Pulsá Instalar. Cuando termine, abrí el juego desde Steam en CrossOver.")
         ]
-        for (index, step) in steps.enumerated() {
-            let line = row(spacing: 12)
-            let number = letter(String(format: "%02d", index + 1), size: 12, bold: true)
-            number.font = .monospacedSystemFont(ofSize: 12, weight: .semibold)
-            number.textColor = Palette.wax
-            number.widthAnchor.constraint(equalToConstant: 24).isActive = true
-            line.addArrangedSubview(number)
-            let details = column(spacing: 3)
-            fullWidth(letter(step.0, bold: true), in: details)
-            fullWidth(letter(step.1), in: details)
-            line.addArrangedSubview(details)
-            fullWidth(line, in: stepsStack)
-        }
+        addGuideSteps(steps, to: stepsStack)
         let note = CrimsonPaths.hasInstaller
             ? "Podés instalar el mod opcional en Crimson. Usá Remover en Resumen si querés recuperar los videos originales."
             : "Esta edición incluye el parche de video. Usá Remover en Resumen si querés recuperar los videos originales."
         fullWidth(letter(note, size: 12), in: stepsStack)
         let tabs = NSTabView()
-        for (label, view) in [("Cómo aplicar el parche", instructions), ("Datos y respaldos", makeStorageGuide())] {
+        for (label, view) in [
+            ("Cómo aplicar el parche", instructions),
+            ("Instalar Crimson", makeCrimsonInstallGuide()),
+            ("Datos y respaldos", makeStorageGuide())
+        ] {
             let tab = NSTabViewItem(identifier: label)
             tab.label = L10n.text(label)
             tab.view = view
             tabs.addTabViewItem(tab)
         }
+        tabs.selectTabViewItem(withIdentifier: section)
         tabs.setContentHuggingPriority(.defaultLow, for: .vertical)
         fullWidth(tabs, in: content)
         let close = NSButton(title: L10n.text("Empezar"), target: self, action: #selector(dismissWelcome))
