@@ -1,4 +1,5 @@
 import AppKit
+import UniformTypeIdentifiers
 
 private enum Palette {
     static let background = NSColor(srgbRed: 0.075, green: 0.064, blue: 0.071, alpha: 1)
@@ -120,6 +121,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     let status = NSTextField(labelWithString: "Listo")
     let modStatus = NSTextField(wrappingLabelWithString: "Sin analizar")
     let modDetail = NSTextField(wrappingLabelWithString: "Elegí primero la carpeta del juego en Resumen.")
+    private var crimsonArchive: URL?
+    private let crimsonArchiveLabel = NSTextField(wrappingLabelWithString: "")
     var crimsonReport: CrimsonReport?
     var crimsonAnalysisError: String?
     var hasChosenGame: Bool { Paths.hasSelection && (try? GameFolder.validate(Paths.game)) != nil }
@@ -240,10 +243,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         heading("Crimson 0.5a", symbol: "flame", in: stack)
         fullWidth(text("El paquete completo de Berthrage y C-Team: modos de juego, estilos, armas, cámara, HUD, efectos, sonidos y texturas.", size: 13, color: .labelColor), in: stack)
         modStatus.font = .systemFont(ofSize: 12, weight: .semibold); modStatus.textColor = .systemGreen; fullWidth(modStatus, in: stack)
-        let description = CrimsonPaths.hasBundledInstaller
-            ? "La instalación es opcional. Respalda los archivos previos y las partidas de SavesDir, y conserva las cinemáticas corregidas."
-            : "Instalar descarga el paquete oficial de Crimson (400 MB) y lo adapta a CrossOver. Se guardan los archivos originales y las partidas de SavesDir."
-        fullWidth(text(description), in: stack)
+        fullWidth(text("Elegí el ZIP o RAR de Crimson 0.5a que ya descargaste. La app prepara el mod para CrossOver y respalda los archivos previos."), in: stack)
+        stack.addArrangedSubview(button("Elegir ZIP o RAR de Crimson…", #selector(chooseCrimsonArchive), needsGame: false))
+        crimsonArchiveLabel.textColor = Palette.muted
+        crimsonArchiveLabel.font = .monospacedSystemFont(ofSize: 11, weight: .regular)
+        crimsonArchiveLabel.isSelectable = true
+        fullWidth(crimsonArchiveLabel, in: stack)
         modDetail.font = .systemFont(ofSize: 12); modDetail.textColor = Palette.muted; fullWidth(modDetail, in: stack)
         let actions = row(spacing: 10)
         installButton = button("Instalar", #selector(installCrimson), primary: true)
@@ -321,8 +326,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         let help = button("Cómo usar", #selector(openWelcome), needsGame: false)
         sideStack.setCustomSpacing(20, after: navigation[navigation.count - 1])
         fullWidth(help, in: sideStack)
-        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.10.5"
-        let sideFooter = text("v\(version)\n" + (CrimsonPaths.hasBundledInstaller ? "Instalación local" : "Edición de GitHub"), size: 10); sideFooter.translatesAutoresizingMaskIntoConstraints = false; sidebar.addSubview(sideFooter)
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.10.6"
+        let sideFooter = text("v\(version)\n" + "Edición de GitHub", size: 10); sideFooter.translatesAutoresizingMaskIntoConstraints = false; sidebar.addSubview(sideFooter)
         NSLayoutConstraint.activate([sideFooter.leadingAnchor.constraint(equalTo: sidebar.leadingAnchor, constant: 22), sideFooter.bottomAnchor.constraint(equalTo: sidebar.bottomAnchor, constant: -22)])
         let stack = column(spacing: 12); stack.translatesAutoresizingMaskIntoConstraints = false; root.addSubview(stack)
         NSLayoutConstraint.activate([stack.leadingAnchor.constraint(equalTo: sidebar.trailingAnchor, constant: 24), stack.trailingAnchor.constraint(equalTo: root.trailingAnchor, constant: -24), stack.topAnchor.constraint(equalTo: root.topAnchor, constant: 22), stack.bottomAnchor.constraint(equalTo: root.bottomAnchor, constant: -18)])
@@ -400,7 +405,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         let legacyConflict = report?.legacyExecutablePatch == true && installed
         installVideoButton?.isEnabled = !busy && selected && report?.canInstall == true && !legacyConflict
         removeVideoButton?.isEnabled = !busy && selected && report?.canRemove == true && !legacyConflict
-        installButton?.isEnabled = !busy && selected && CrimsonPaths.hasInstaller && mod?.canInstall == true
+        installButton?.isEnabled = !busy && selected && CrimsonPaths.hasInstaller && crimsonArchive != nil && mod?.canInstall == true
+        crimsonArchiveLabel.stringValue = crimsonArchive.map { L10n.text("Archivo listo: \($0.lastPathComponent)") }
+            ?? L10n.text("Todavía no elegiste un archivo de Crimson.")
         removeButton?.isEnabled = !busy && selected && mod?.canRemove == true
         cancelButton.isEnabled = busy
         if let chosen = SelectionStore.shared.selected {
@@ -688,12 +695,32 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         crimsonReport = nil; crimsonAnalysisError = nil
         work("Analizando Crimson…") { try self.readCrimsonReport() }
     }
+    @objc private func chooseCrimsonArchive() {
+        guard !busy else { return }
+        let panel = NSOpenPanel()
+        panel.title = L10n.text("Elegí el ZIP o RAR de Crimson 0.5a.")
+        panel.allowedContentTypes = [.zip, UTType(filenameExtension: "rar") ?? .archive]
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = false
+        panel.beginSheetModal(for: window) { [weak self] result in
+            guard result == .OK, let archive = panel.url, let self else { return }
+            self.crimsonArchive = nil
+            self.work("Comprobando el archivo de Crimson…") {
+                try self.crimson.validateArchive(archive)
+                DispatchQueue.main.async {
+                    self.crimsonArchive = archive
+                    self.append("Archivo de Crimson comprobado.")
+                }
+            }
+        }
+    }
     @objc func installCrimson() {
-        guard hasChosenGame, !busy else { return }
+        guard hasChosenGame, !busy, let archive = crimsonArchive else { return }
         work("Instalando Crimson con respaldo…") {
             do {
-                if self.engine.exists(Paths.modState) { try self.crimson.updateGameFiles() }
-                else { try self.crimson.install() }
+                if self.engine.exists(Paths.modState) { try self.crimson.updateGameFiles(archive: archive) }
+                else { try self.crimson.install(archive: archive) }
             } catch { try? self.readCrimsonReport(); throw error }
             try self.readCrimsonReport()
         }

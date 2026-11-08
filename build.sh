@@ -2,10 +2,8 @@
 set -euo pipefail
 PROJECT_DIR="${0:A:h}"
 cd "$PROJECT_DIR"
-VARIANT=public
-if [[ -f mods/crimson/prepared/payload.zip ]]; then VARIANT=local; fi
-if [[ "${1:-}" == --public ]]; then VARIANT=public
-elif [[ -n "${1:-}" ]]; then print -u2 'Uso: ./build.sh [--public]'; exit 1
+if [[ -n "${1:-}" && "${1:-}" != --public ]]; then
+  print -u2 'Uso: ./build.sh [--public]'; exit 1
 fi
 if [[ "$PROJECT_DIR" == */Contents/Resources/Project ]]; then
   BUILD_DIR="$HOME/Library/Application Support/DMC3 Patch/DevelopmentBuild"
@@ -25,10 +23,10 @@ APP="$STAGE/DMC3 Patch.app"
 mkdir -p "$APP/Contents/MacOS"
 /usr/bin/xcrun swiftc -swift-version 5 -Osize -whole-module-optimization -Xlinker -dead_strip \
   -module-cache-path "$CLANG_MODULE_CACHE_PATH" -target arm64-apple-macosx13.0 \
-  -framework AppKit -framework CryptoKit Sources/*.swift \
+  -I Sources/CrimsonArchiveC -framework AppKit -framework CryptoKit Sources/*.swift \
   -o "$APP/Contents/MacOS/DMC3Patch"
 /usr/bin/strip -S -x "$APP/Contents/MacOS/DMC3Patch"
-python3 tools/package-resources.py "$PROJECT_DIR" "$APP/Contents/Resources" "$VARIANT"
+python3 tools/package-resources.py "$PROJECT_DIR" "$APP/Contents/Resources"
 cat > "$APP/Contents/Info.plist" <<'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -38,8 +36,8 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
 <key>CFBundleName</key><string>DMC3 Patch</string>
 <key>CFBundleDisplayName</key><string>DMC3 Patch</string>
 <key>CFBundlePackageType</key><string>APPL</string>
-<key>CFBundleShortVersionString</key><string>0.10.5</string>
-<key>CFBundleVersion</key><string>18</string>
+<key>CFBundleShortVersionString</key><string>0.10.6</string>
+<key>CFBundleVersion</key><string>19</string>
 <key>CFBundleIconFile</key><string>DMC3Patch.icns</string>
 <key>LSMinimumSystemVersion</key><string>13.0</string>
 <key>NSHighResolutionCapable</key><true/>
@@ -54,4 +52,4 @@ done
 /usr/bin/codesign --force --sign - "$APP"
 /usr/bin/codesign --verify --deep --strict "$APP"
 mv "$APP" "$APP_DIR"
-print "App creada ($VARIANT) en $APP_DIR"
+print "App creada en $APP_DIR"

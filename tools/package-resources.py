@@ -6,13 +6,12 @@ import sys
 
 source = Path(sys.argv[1]).resolve()
 resources = Path(sys.argv[2]).resolve()
-variant = sys.argv[3]
-assert variant in {"local", "public"}
 project = resources / "Project"
 licenses = resources / "licenses"
 
 files = [
     "build.sh", "README.md", "LICENSE",
+    "Sources/CrimsonArchiveC/module.modulemap", "Sources/CrimsonArchiveC/ArchiveAPI.h",
     "tools/package-resources.py", "tools/build-ffmpeg.sh",
     "tools/bin/ffmpeg", "tools/bin/ffprobe", "tools/bin/xdelta3decode",
     "tools/downloads/xdelta3-3.2.2.tar.gz", "docs/Xdelta-LICENSE.txt",
@@ -28,8 +27,6 @@ files.extend(f"mods/crimson/compat/{name}.vcdiff" for name in (
     "dmc3.exe", "dmcLauncher.exe", "crimson_api.dll",
     "dmcload.dll", "DMCHDFix.asi", "DMCHDFix.ini",
 ))
-if variant == "local":
-    files.append("mods/crimson/prepared/payload.zip")
 
 for path in files:
     original = source / path
@@ -50,10 +47,7 @@ shutil.copy2(icon, resources / icon_name)
 manifest = Path("mods/crimson/prepared/manifest.json")
 recipe = json.loads((source / manifest).read_text())
 recipe.pop("sourceDirectory", None)
-if variant == "public":
-    recipe.pop("archiveSHA256", None)
-elif not recipe.get("archiveSHA256"):
-    raise SystemExit("Missing Crimson ZIP hash in manifest")
+recipe.pop("archiveSHA256", None)
 target_manifest = project / manifest
 target_manifest.parent.mkdir(parents=True, exist_ok=True)
 target_manifest.write_text(json.dumps(recipe, indent=2, ensure_ascii=False) + "\n")

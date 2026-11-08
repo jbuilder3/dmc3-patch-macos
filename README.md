@@ -11,11 +11,11 @@ DMC3 Patch está pensado para quienes juegan en una Mac con Apple Silicon y ven 
 - Reconoce instalaciones compatibles aunque el ejecutable de DMC3 tenga un nombre personalizado.
 - Incluye una guía de bienvenida en español e inglés y muestra las rutas de tus datos y respaldos.
 
-La app también instala Crimson 0.5a de forma opcional. Para instalar el mod descarga el paquete oficial de Crimson (400 MB) y prepara los archivos compatibles con la versión de Steam admitida.
+La app también instala Crimson 0.5a de forma opcional. Elegí el ZIP o RAR de la versión 0.5a que hayas descargado. [Paquete oficial en Nexus Mods](https://www.nexusmods.com/devilmaycryhdcollection/mods/272?tab=files) · [Release de Crimson en GitHub](https://github.com/berthrage/DMC3-Crimson/releases/tag/V0.5a).
 
 ## Cómo usarlo
 
-1. Descargá `DMC3-Patch-0.10.5-arm64.zip` desde [Releases](https://github.com/jbuilder3/dmc3-patch-macos/releases/tag/v0.10.5). Descomprimilo y abrí **DMC3 Patch.app**. La app tiene firma ad hoc y macOS puede pedir autorización para abrirla. [Guía de Apple para abrir apps en la Mac](https://support.apple.com/es-mx/102445).
+1. Descargá `DMC3-Patch-0.10.6-arm64.zip` desde [Releases](https://github.com/jbuilder3/dmc3-patch-macos/releases/tag/v0.10.6). Descomprimilo y abrí **DMC3 Patch.app**. La app tiene firma ad hoc y macOS puede pedir autorización para abrirla. [Guía de Apple para abrir apps en la Mac](https://support.apple.com/es-mx/102445).
 2. En Steam, dentro de CrossOver, buscá **Devil May Cry HD Collection** y usá **Administrar → Ver archivos locales** para ubicar el juego. Cerrá DMC3 y el launcher antes de instalar el parche.
 3. En DMC3 Patch, abrí **Resumen → Elegir carpeta del juego** y seleccioná la carpeta que contiene el ejecutable de DMC3 y `data/dmc3`.
 4. Pulsá **Analizar** para comprobar el estado del juego. Si corresponde, pulsá **Instalar** y esperá a que termine la conversión.
@@ -23,7 +23,7 @@ La app también instala Crimson 0.5a de forma opcional. Para instalar el mod des
 
 Para recuperar los videos originales, cerrá el juego y usá **Resumen → Remover**. En **Cómo usar → Datos y respaldos** podés ver las rutas exactas y abrir en Finder la carpeta `~/Library/Application Support/DMC3 Patch`. Conservá los respaldos mientras quieras poder restaurar el juego.
 
-Para instalar **Crimson**, elegí primero la carpeta del juego y cerrá la colección. Abrí **Crimson → Analizar** y pulsá **Instalar** si el juego es compatible. La app descarga el mod y verifica sus archivos antes de instalarlo. **Crimson → Quitar** restaura los archivos originales respaldados.
+Para instalar **Crimson**, elegí primero la carpeta del juego y cerrá la colección. En **Crimson → Elegir ZIP o RAR de Crimson**, seleccioná el archivo completo. Cuando el archivo esté listo y el análisis confirme que el juego es compatible, pulsá **Instalar**. La app prepara y verifica los archivos antes de escribir en el juego. **Crimson → Quitar** restaura los archivos originales respaldados.
 
 ## Compilar el código
 

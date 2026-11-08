@@ -1,0 +1,5 @@
+module CrimsonArchiveC [system] {
+    header "ArchiveAPI.h"
+    link "archive"
+    export *
+}

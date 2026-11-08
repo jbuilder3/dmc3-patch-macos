@@ -960,14 +960,6 @@
     "This edition includes the video patch. The Crimson installer requires its local package."
   ],
   [
-    "El ZIP de Crimson no coincide con su huella de verificación.",
-    "The Crimson ZIP does not match its verification hash."
-  ],
-  [
-    "Descomprimiendo Crimson para esta instalación…",
-    "Extracting Crimson for this installation…"
-  ],
-  [
     "Datos y respaldos",
     "Data and backups"
   ],
@@ -1044,10 +1036,6 @@
     "Choose the game in Overview to see the exact paths. Older installations may store their backups directly in the data folder."
   ],
   [
-    "Instalar descarga el paquete oficial de Crimson (400 MB) y lo adapta a CrossOver. Se guardan los archivos originales y las partidas de SavesDir.",
-    "Install downloads the official Crimson package (400 MB) and prepares it for CrossOver. Original files and any SavesDir game saves are backed up."
-  ],
-  [
     "Edición de GitHub",
     "GitHub edition"
   ],
@@ -1060,15 +1048,47 @@
     "A compatible original copy of {0} could not be found."
   ],
   [
-    "Descargando Crimson 0.5a desde su release oficial (400 MB)…",
-    "Downloading Crimson 0.5a from its official release (400 MB)…"
-  ],
-  [
-    "La descarga de Crimson no coincide con su huella de verificación.",
-    "The Crimson download does not match its verification hash."
-  ],
-  [
     "Preparando los archivos de Crimson para CrossOver…",
     "Preparing the Crimson files for CrossOver…"
+  ],
+  [
+    "Elegí el ZIP o RAR de Crimson 0.5a que ya descargaste. La app prepara el mod para CrossOver y respalda los archivos previos.",
+    "Choose the Crimson 0.5a ZIP or RAR you downloaded. The app prepares the mod for CrossOver and backs up your original files."
+  ],
+  [
+    "Elegir ZIP o RAR de Crimson…",
+    "Choose Crimson ZIP or RAR…"
+  ],
+  [
+    "Archivo listo: {0}",
+    "Archive ready: {0}"
+  ],
+  [
+    "Todavía no elegiste un archivo de Crimson.",
+    "Choose a Crimson archive to continue."
+  ],
+  [
+    "Elegí el ZIP o RAR de Crimson 0.5a.",
+    "Choose the Crimson 0.5a ZIP or RAR."
+  ],
+  [
+    "Comprobando el archivo de Crimson…",
+    "Checking the Crimson archive…"
+  ],
+  [
+    "Archivo de Crimson comprobado.",
+    "Crimson archive checked."
+  ],
+  [
+    "No se pudo leer el ZIP o RAR de Crimson. Elegí el paquete completo de la versión 0.5a.",
+    "The Crimson ZIP or RAR could not be read. Choose the full 0.5a package."
+  ],
+  [
+    "El archivo está incompleto o no es el paquete de Crimson 0.5a.",
+    "The archive is incomplete or is not the Crimson 0.5a package."
+  ],
+  [
+    "No se pudo extraer un archivo completo de Crimson. Revisá {0}.",
+    "A complete Crimson file could not be extracted. Check {0}."
   ]
 ]

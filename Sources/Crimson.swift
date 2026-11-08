@@ -4,19 +4,12 @@ import Darwin
 enum CrimsonPaths {
     static let root = Paths.assets.appendingPathComponent("mods/crimson", isDirectory: true)
     static let prepared = root.appendingPathComponent("prepared", isDirectory: true)
-    static let payload = prepared.appendingPathComponent("payload", isDirectory: true)
-    static let archive = prepared.appendingPathComponent("payload.zip")
     static let compatibility = root.appendingPathComponent("compat", isDirectory: true)
     static let decoder = Paths.assets.appendingPathComponent("tools/bin/xdelta3decode")
-    static var hasBundledInstaller: Bool {
-        FileManager.default.fileExists(atPath: archive.path) ||
-        FileManager.default.fileExists(atPath: payload.path)
-    }
-    static var hasDownloadInstaller: Bool {
+    static var hasInstaller: Bool {
         FileManager.default.isExecutableFile(atPath: decoder.path) &&
         FileManager.default.fileExists(atPath: compatibility.path)
     }
-    static var hasInstaller: Bool { hasBundledInstaller || hasDownloadInstaller }
     static let recipe = prepared.appendingPathComponent("manifest.json")
     static var backups: URL { Paths.dataRoot.appendingPathComponent("mods/crimson/backups", isDirectory: true) }
 
@@ -37,7 +30,6 @@ struct ModRecipe: Codable {
     var files: [ModFile]
     var totalBytes: Int64
     var deployment: String?
-    var archiveSHA256: String?
 }
 struct ModInstalledFile: Codable {
     var path: String
@@ -139,7 +131,7 @@ final class CrimsonInstaller {
     }
     func validateLayout() throws {
         guard Paths.hasSelection else { throw PatchError("Elegí la carpeta del juego en Resumen antes de continuar.") }
-        for url in [CrimsonPaths.root, CrimsonPaths.prepared, CrimsonPaths.payload, CrimsonPaths.archive, CrimsonPaths.recipe, CrimsonPaths.backups, Paths.modState] {
+        for url in [CrimsonPaths.root, CrimsonPaths.prepared, CrimsonPaths.compatibility, CrimsonPaths.decoder, CrimsonPaths.recipe, CrimsonPaths.backups, Paths.modState] {
             guard url.standardizedFileURL.path == url.resolvingSymlinksInPath().standardizedFileURL.path else {
                 throw PatchError("Se detectó un enlace simbólico: \(url.path)")
             }
@@ -166,11 +158,10 @@ final class CrimsonInstaller {
         for file in recipe.files {
             guard allowed(file.path), file.hash.count == 64, file.size > 0 else { throw PatchError("Archivo fuera del alcance de Crimson: \(file.path)") }
             _ = try safeURL(Paths.game, file.path)
-            _ = try payloadURL(file)
         }
         return recipe
     }
-    func payloadURL(_ file: ModFile, in payload: URL = CrimsonPaths.payload) throws -> URL {
+    func payloadURL(_ file: ModFile, in payload: URL) throws -> URL {
         try safeURL(payload, GameFolder.executableNameIsSafe(file.path) ? "dmc3.exe" : file.path)
     }
     func baseURL(_ path: String) throws -> URL {
@@ -179,29 +170,19 @@ final class CrimsonInstaller {
     }
     // Called under the operation lock. Every prepared file is verified
     // against the signed manifest before the game installation is changed.
-    func unpackPayload(_ recipe: ModRecipe, originals: [String: URL] = [:]) throws -> URL {
-        if engine.exists(CrimsonPaths.payload) { return CrimsonPaths.payload }
+    func unpackPayload(_ archive: URL, recipe: ModRecipe, originals: [String: URL] = [:]) throws -> URL {
         let temporary = Paths.project.appendingPathComponent(".build/tmp/crimson-" + UUID().uuidString, isDirectory: true)
         try fm.createDirectory(at: temporary, withIntermediateDirectories: false)
         do {
-            if engine.exists(CrimsonPaths.archive) {
-                guard let expected = recipe.archiveSHA256, expected.count == 64,
-                      try engine.hash(CrimsonPaths.archive) == expected else {
-                    throw PatchError("El ZIP de Crimson no coincide con su huella de verificación.")
-                }
-                engine.log("Descomprimiendo Crimson para esta instalación…")
-                try engine.run(URL(fileURLWithPath: "/usr/bin/ditto"), ["-x", "-k", CrimsonPaths.archive.path, temporary.path])
-            } else {
-                try prepareDownloadedPayload(recipe, originals: originals, in: temporary)
-            }
+            try prepareArchivePayload(archive, recipe: recipe, originals: originals, in: temporary)
             return temporary
         } catch {
-            try? fm.removeItem(at: temporary)
+            releasePayload(temporary)
             throw error
         }
     }
     func releasePayload(_ payload: URL) {
-        if payload != CrimsonPaths.payload { try? fm.removeItem(at: payload) }
+        try? fm.removeItem(at: payload)
     }
     func verifyPayload(_ recipe: ModRecipe, in payload: URL) throws {
         engine.log("Verificando \(recipe.files.count) archivos del paquete Crimson…")
@@ -313,13 +294,13 @@ final class CrimsonInstaller {
         }
     }
 
-    func install() throws {
+    func install(archive: URL) throws {
         try engine.withLock {
             try validateLayout(); try assertCollectionClosed()
             guard !engine.exists(Paths.modState) else { throw PatchError("Crimson ya está instalado o tiene una recuperación pendiente. Usá Quitar Crimson antes de reinstalar.") }
             let recipe = try loadRecipe()
             try verifyGameBase(recipe)
-            let payload = try unpackPayload(recipe)
+            let payload = try unpackPayload(archive, recipe: recipe)
             defer { releasePayload(payload) }
             try verifyPayload(recipe, in: payload)
             let id = ISO8601DateFormatter().string(from: Date()).replacingOccurrences(of: ":", with: "-") + "-" + UUID().uuidString.prefix(8)
